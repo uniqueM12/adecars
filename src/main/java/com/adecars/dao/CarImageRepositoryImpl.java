@@ -7,6 +7,7 @@ import java.io.InputStream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.gridfs.GridFsTemplate;
+import org.springframework.stereotype.Repository;
 
 import com.mongodb.DBObject;
 
@@ -15,6 +16,7 @@ import com.mongodb.DBObject;
  *
  * @author uniqueM
  */
+@Repository
 public class CarImageRepositoryImpl implements CarImageRepository {
 
 	@Autowired
