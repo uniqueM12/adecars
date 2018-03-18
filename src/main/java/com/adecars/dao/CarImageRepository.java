@@ -9,5 +9,5 @@ import com.mongodb.DBObject;
 @Repository
 public interface CarImageRepository {
 
-	public void save(InputStream image, String fileName, DBObject metaData);
+	public void save(InputStream image, String fileName, String fileType, DBObject metaData);
 }

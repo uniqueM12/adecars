@@ -23,9 +23,9 @@ public class CarImageRepositoryImpl implements CarImageRepository {
 	GridFsTemplate gridFsTemplate;
 
 	@Override
-	public void save(InputStream image, String fileName, DBObject metaData) {
+	public void save(InputStream image, String fileName, String fileType, DBObject metaData) {
 		// TODO Auto-generated method stub
-		gridFsTemplate.store(image, fileName, metaData);
+		gridFsTemplate.store(image, fileName, fileType, metaData);
 	}
 
 }

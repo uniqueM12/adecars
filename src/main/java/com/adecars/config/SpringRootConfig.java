@@ -31,8 +31,7 @@ import com.mongodb.MongoClient;
 public class SpringRootConfig extends AbstractMongoConfiguration {
 
 	/*
-	 * @return
-	 * This method is responsible for
+	 * @return This method is responsible for
 	 */
 
 	@Override
@@ -44,9 +43,7 @@ public class SpringRootConfig extends AbstractMongoConfiguration {
 	}
 
 	/*
-	 * @return
-	 * /* @throws Exception
-	 * This method is responsible for
+	 * @return /* @throws Exception This method is responsible for
 	 */
 
 	@Override
