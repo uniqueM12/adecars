@@ -6,10 +6,8 @@ import java.io.InputStream;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import com.adecars.dao.CarImageRepository;
 import com.adecars.dao.CarRepository;
 import com.adecars.models.Car;
 import com.adecars.models.Make;
@@ -27,10 +25,6 @@ public class CarServiceImpl implements CarService {
 
 	@Autowired
 	CarRepository carRepository;
-
-	@Autowired
-	@Qualifier("CarImage")
-	CarImageRepository carImageRepository;
 
 	@Override
 	public void save(Car car) throws IOException {
