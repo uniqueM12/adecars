@@ -65,8 +65,7 @@ public class CarController {
 
 		if (bindingResult.hasErrors()) {
 			return "vehicle/post-vehicle";
-		}
-		else {
+		} else {
 			carService.save(car);
 		}
 		logger.debug("is trying to post a new vehicle");
