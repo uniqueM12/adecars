@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.adecars.dao.ModelRepository;
-import com.adecars.models.Make;
 import com.adecars.models.Seller;
 import com.adecars.service.MakeService;
 import com.adecars.service.SellerService;
@@ -47,24 +46,8 @@ public class HomeController {
 
 		logger.debug("index() is executing...");
 
-		// Scanner input = new Scanner(System.in);
-		// Make make = findMake("Atlas Copco");
-		// for (int i = 0; i <= 20; i++) {
-		// String model = input.nextLine();
-		// Model newModel = new Model(model, make);
-		// System.out.println("Trying to persist " + newModel + "Of make " + make);
-		// modelRepository.save(newModel);
-		// System.out.println("persisted");
-		// }
-
 		return "redirect:/home";
 
-	}
-
-	public Make findMake(String make) {
-		Make make2 = makeService.findOne(make);
-		System.out.println("Make found " + make2);
-		return make2;
 	}
 
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
@@ -87,9 +70,8 @@ public class HomeController {
 				System.out.println(error.getRejectedValue() + error.getDefaultMessage());
 			}
 			return "home";
-		}
-		else if ((sellerService.findByUserName(seller.getUserName()) != null)
-		        || (sellerService.findByEmail(seller.getEmail()) != null)) {
+		} else if ((sellerService.findByUserName(seller.getUserName()) != null) || (sellerService.findByEmail(seller
+				.getEmail()) != null)) {
 
 			if (sellerService.findByUserName(seller.getUserName()) != null) {
 
@@ -102,8 +84,7 @@ public class HomeController {
 				System.out.println("The email address you supplied has been used ");
 			}
 			return "home";
-		}
-		else {
+		} else {
 			sellerService.save(seller);
 		}
 		return "post-vehicle";
@@ -115,33 +96,28 @@ public class HomeController {
 		logger.debug("Login() has been called");
 
 		Seller seller2 = new Seller();
-		if ((sellerService.findByUserName(seller.getUserName()) != null)
-		        && (sellerService.findByEmail(seller.getUserName()) != null)) {
+		if ((sellerService.findByUserName(seller.getUserName()) != null) && (sellerService.findByEmail(seller
+				.getUserName()) != null)) {
 			System.out.println(seller.getUserName() + " " + seller.getpWord());
 			model.addAttribute("incorrectUOrP", "The username/email or password you entered is not correct");
 			return "home";
-		}
-		else if ((sellerService.findByUserName(seller.getUserName()) != null)) {
-			System.out.println("There are with this username");
+		} else if ((sellerService.findByUserName(seller.getUserName()) != null)) {
+			System.out.println("Id by username");
 			if (seller.getpWord().equals(seller2.getpWord())) {
 				Seller realSeller = seller2;
 				model.addAttribute("seller", realSeller);
-				return "profile";
-			}
-			else {
+				return "vehicle/post-vehicle";
+			} else {
 				model.addAttribute("incorrectUOrP", "The username/email or password you entered is not correct");
 				return "home";
 			}
-		}
-		else if ((sellerService.findByEmail(seller.getUserName()) != null)) {
-			System.out.println("There are with this email");
+		} else if ((sellerService.findByEmail(seller.getUserName()) != null)) {
+			System.out.println("ID by email");
 			if (seller.getpWord().equals(seller2.getpWord())) {
 				Seller realSeller = seller2;
 				model.addAttribute("seller", realSeller);
-				System.out.println("real pword is " + seller2.getpWord());
-				return "profile";
-			}
-			else {
+				return "vehicle/post-vehicle";
+			} else {
 				model.addAttribute("incorrectUOrP", "The username/email or password you entered is not correct");
 				return "home";
 			}
