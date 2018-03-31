@@ -12,6 +12,7 @@ import org.springframework.data.mongodb.gridfs.GridFsTemplate;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.adecars.dao.CarImageRepository;
 import com.adecars.dao.CarRepository;
 import com.adecars.models.Car;
 import com.adecars.service.CarService;
@@ -26,7 +27,7 @@ import com.mongodb.MongoClient;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan(basePackageClasses = { Car.class, CarService.class })
+@ComponentScan(basePackageClasses = { Car.class, CarService.class, CarImageRepository.class })
 @EnableMongoRepositories(basePackageClasses = CarRepository.class)
 public class SpringRootConfig extends AbstractMongoConfiguration {
 
