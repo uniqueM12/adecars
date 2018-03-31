@@ -100,46 +100,36 @@ public class CarServiceImpl implements CarService {
 
 		String imageId = saved.getId();
 
-		// if (!inputStream1.equals(null)) {
-		// carImageRepositorys.save(inputStream1, imageId + "carImage1", "image/jpeg",
-		// null);
-		// }
-		// if (!inputStream2.equals(null)) {
-		// carImageRepositorys.save(inputStream2, imageId + "carImage2", "image/jpeg",
-		// null);
-		// }
-		// if (!inputStream3.equals(null)) {
-		// carImageRepositorys.save(inputStream3, imageId + "carImage3", "image/jpeg",
-		// null);
-		// }
-		// if (!inputStream4.equals(null)) {
-		// carImageRepositorys.save(inputStream4, imageId + "carImage4", "image/jpeg",
-		// null);
-		// }
-		// if (!inputStream5.equals(null)) {
-		// carImageRepositorys.save(inputStream5, imageId + "carImage5", "image/jpeg",
-		// null);
-		// }
-		// if (!inputStream6.equals(null)) {
-		// carImageRepositorys.save(inputStream6, imageId + "carImage6", "image/jpeg",
-		// null);
-		// }
-		// if (!inputStream7.equals(null)) {
-		// carImageRepositorys.save(inputStream7, imageId + "carImage7", "image/jpeg",
-		// null);
-		// }
-		// if (!inputStream8.equals(null)) {
-		// carImageRepositorys.save(inputStream8, imageId + "carImage8", "image/jpeg",
-		// null);
-		// }
-		// if (!inputStream9.equals(null)) {
-		// carImageRepositorys.save(inputStream9, imageId + "carImage9", "image/jpeg",
-		// null);
-		// }
-		// if (!inputStream10.equals(null)) {
-		// carImageRepositorys.save(inputStream10, imageId + "carImage10", "image/jpeg",
-		// null);
-		// }
+		if (!inputStream1.equals(null)) {
+			carImageRepository.save(inputStream1, imageId + "carImage1", "image/jpeg", null);
+		}
+		if (!inputStream2.equals(null)) {
+			carImageRepository.save(inputStream2, imageId + "carImage2", "image/jpeg", null);
+		}
+		if (!inputStream3.equals(null)) {
+			carImageRepository.save(inputStream3, imageId + "carImage3", "image/jpeg", null);
+		}
+		if (!inputStream4.equals(null)) {
+			carImageRepository.save(inputStream4, imageId + "carImage4", "image/jpeg", null);
+		}
+		if (!inputStream5.equals(null)) {
+			carImageRepository.save(inputStream5, imageId + "carImage5", "image/jpeg", null);
+		}
+		if (!inputStream6.equals(null)) {
+			carImageRepository.save(inputStream6, imageId + "carImage6", "image/jpeg", null);
+		}
+		if (!inputStream7.equals(null)) {
+			carImageRepository.save(inputStream7, imageId + "carImage7", "image/jpeg", null);
+		}
+		if (!inputStream8.equals(null)) {
+			carImageRepository.save(inputStream8, imageId + "carImage8", "image/jpeg", null);
+		}
+		if (!inputStream9.equals(null)) {
+			carImageRepository.save(inputStream9, imageId + "carImage9", "image/jpeg", null);
+		}
+		if (!inputStream10.equals(null)) {
+			carImageRepository.save(inputStream10, imageId + "carImage10", "image/jpeg", null);
+		}
 		/*
 		 * DBObject carDetails = new BasicDBObject(); carDetails.put("AC", car.getAC());
 		 * carDetails.put("addPhone", car.getAddPhone()); carDetails.put("airBags",
