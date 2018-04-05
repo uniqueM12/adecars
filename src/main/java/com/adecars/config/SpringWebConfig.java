@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
@@ -22,8 +21,6 @@ import org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
 
-import com.adecars.controller.HomeController;
-
 /**
  * Since 22:25:45 | 10 Sep 2017
  *
@@ -32,7 +29,6 @@ import com.adecars.controller.HomeController;
 
 @EnableWebMvc
 @Configuration
-@ComponentScan(basePackageClasses = HomeController.class)
 public class SpringWebConfig extends WebMvcConfigurerAdapter implements ApplicationContextAware {
 
 	@Autowired

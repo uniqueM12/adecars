@@ -17,8 +17,7 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 public class AdeCarsWebInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
 	/*
-	 * @return
-	 * This method is responsible for
+	 * @return This method is responsible for
 	 */
 
 	@Override
@@ -26,12 +25,11 @@ public class AdeCarsWebInitializer extends AbstractAnnotationConfigDispatcherSer
 		// TODO Auto-generated method stub
 
 		System.out.println("code execution is reaching getRootConfigClasses()");
-		return new Class[] { SpringRootConfig.class };
+		return new Class[] { SpringRootConfig.class, SpringSecurityConfig.class };
 	}
 
 	/*
-	 * @return
-	 * This method is responsible for
+	 * @return This method is responsible for
 	 */
 
 	@Override
@@ -43,8 +41,7 @@ public class AdeCarsWebInitializer extends AbstractAnnotationConfigDispatcherSer
 	}
 
 	/*
-	 * @return
-	 * This method is responsible for
+	 * @return This method is responsible for
 	 */
 
 	@Override
@@ -56,8 +53,7 @@ public class AdeCarsWebInitializer extends AbstractAnnotationConfigDispatcherSer
 	}
 
 	/*
-	 * @return
-	 * This method is responsible for
+	 * @return This method is responsible for
 	 */
 
 	@Override
