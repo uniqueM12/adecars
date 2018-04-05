@@ -97,13 +97,15 @@ public class HomeController {
 
 		Seller seller2 = new Seller();
 		if ((sellerService.findByUserName(seller.getUserName()) != null) && (sellerService.findByEmail(seller
-				.getUserName()) != null)) {
+				.getEmail()) != null)) {
 			System.out.println(seller.getUserName() + " " + seller.getpWord());
 			model.addAttribute("incorrectUOrP", "The username/email or password you entered is not correct");
 			return "home";
 		} else if ((sellerService.findByUserName(seller.getUserName()) != null)) {
 			System.out.println("Id by username");
+			seller2 = sellerService.findByUserName(seller.getUserName());
 			if (seller.getpWord().equals(seller2.getpWord())) {
+				System.out.println("Match!!!");
 				Seller realSeller = seller2;
 				model.addAttribute("seller", realSeller);
 				return "vehicle/post-vehicle";
