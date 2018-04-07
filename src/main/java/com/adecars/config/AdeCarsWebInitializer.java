@@ -25,7 +25,9 @@ public class AdeCarsWebInitializer extends AbstractAnnotationConfigDispatcherSer
 		// TODO Auto-generated method stub
 
 		System.out.println("code execution is reaching getRootConfigClasses()");
-		return new Class[] { SpringRootConfig.class, SpringSecurityConfig.class };
+		Class<?>[] RootConfigClasses = new Class[] { SpringRootConfig.class, SpringSecurityConfig.class };
+		return RootConfigClasses;
+		// return new Class[] { SpringRootConfig.class, SpringSecurityConfig.class };
 	}
 
 	/*
@@ -37,7 +39,9 @@ public class AdeCarsWebInitializer extends AbstractAnnotationConfigDispatcherSer
 		// TODO Auto-generated method stub
 
 		System.out.println("code execution is reaching getServletConfigClasses()");
-		return new Class[] { SpringWebConfig.class };
+		Class<?>[] webConfigClasses = new Class[] { SpringWebConfig.class };
+		// return new Class[] { SpringWebConfig.class };
+		return webConfigClasses;
 	}
 
 	/*
