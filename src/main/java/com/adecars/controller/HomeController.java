@@ -59,6 +59,13 @@ public class HomeController {
 		return "home";
 	}
 
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String login() {
+
+		logger.debug("login() has been called");
+		return "login";
+	}
+
 	@RequestMapping(value = "/signUp", method = RequestMethod.POST)
 	public String signUp(@Valid @ModelAttribute("seller") Seller seller, BindingResult bindingResult, ModelMap model) {
 
@@ -90,40 +97,44 @@ public class HomeController {
 		return "post-vehicle";
 	}
 
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String logIn(Seller seller, ModelMap model) {
-
-		logger.debug("Login() has been called");
-
-		Seller seller2 = new Seller();
-		if ((sellerService.findByUserName(seller.getUserName()) != null) && (sellerService.findByEmail(seller
-				.getEmail()) != null)) {
-			System.out.println(seller.getUserName() + " " + seller.getpWord());
-			model.addAttribute("incorrectUOrP", "The username/email or password you entered is not correct");
-			return "home";
-		} else if ((sellerService.findByUserName(seller.getUserName()) != null)) {
-			System.out.println("Id by username");
-			seller2 = sellerService.findByUserName(seller.getUserName());
-			if (seller.getpWord().equals(seller2.getpWord())) {
-				System.out.println("Match!!!");
-				Seller realSeller = seller2;
-				model.addAttribute("seller", realSeller);
-				return "vehicle/post-vehicle";
-			} else {
-				model.addAttribute("incorrectUOrP", "The username/email or password you entered is not correct");
-				return "home";
-			}
-		} else if ((sellerService.findByEmail(seller.getUserName()) != null)) {
-			System.out.println("ID by email");
-			if (seller.getpWord().equals(seller2.getpWord())) {
-				Seller realSeller = seller2;
-				model.addAttribute("seller", realSeller);
-				return "vehicle/post-vehicle";
-			} else {
-				model.addAttribute("incorrectUOrP", "The username/email or password you entered is not correct");
-				return "home";
-			}
-		}
-		return "home";
-	}
+	// @RequestMapping(value = "/login", method = RequestMethod.POST)
+	// public String logIn(Seller seller, ModelMap model) {
+	//
+	// logger.debug("Login() has been called");
+	//
+	// Seller seller2 = new Seller();
+	// if ((sellerService.findByUserName(seller.getUserName()) != null) &&
+	// (sellerService.findByEmail(seller
+	// .getEmail()) != null)) {
+	// System.out.println(seller.getUserName() + " " + seller.getpWord());
+	// model.addAttribute("incorrectUOrP", "The username/email or password you
+	// entered is not correct");
+	// return "home";
+	// } else if ((sellerService.findByUserName(seller.getUserName()) != null)) {
+	// System.out.println("Id by username");
+	// seller2 = sellerService.findByUserName(seller.getUserName());
+	// if (seller.getpWord().equals(seller2.getpWord())) {
+	// System.out.println("Match!!!");
+	// Seller realSeller = seller2;
+	// model.addAttribute("seller", realSeller);
+	// return "vehicle/post-vehicle";
+	// } else {
+	// model.addAttribute("incorrectUOrP", "The username/email or password you
+	// entered is not correct");
+	// return "home";
+	// }
+	// } else if ((sellerService.findByEmail(seller.getUserName()) != null)) {
+	// System.out.println("ID by email");
+	// if (seller.getpWord().equals(seller2.getpWord())) {
+	// Seller realSeller = seller2;
+	// model.addAttribute("seller", realSeller);
+	// return "vehicle/post-vehicle";
+	// } else {
+	// model.addAttribute("incorrectUOrP", "The username/email or password you
+	// entered is not correct");
+	// return "home";
+	// }
+	// }
+	// return "home";
+	// }
 }

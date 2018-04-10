@@ -4,12 +4,16 @@
 package com.adecars.config;
 
 import java.io.IOException;
+import java.util.Properties;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.core.env.Environment;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -18,6 +22,8 @@ import org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
 
+import com.adecars.controller.HomeController;
+
 /**
  * Since 22:25:45 | 10 Sep 2017
  *
@@ -25,17 +31,12 @@ import org.thymeleaf.templatemode.TemplateMode;
  */
 
 @Configuration
+@ComponentScan(basePackageClasses = { HomeController.class })
+@PropertySource(value = { "classpath:Application.properties" })
 public class SpringWebConfig extends WebMvcConfigurerAdapter {
 
 	@Autowired
 	private ApplicationContext applicationContext;
-
-	// @Override
-	// public void setApplicationContext(ApplicationContext applicationContext)
-	// throws BeansException {
-	//
-	// this.applicationContext = applicationContext;
-	// }
 
 	@Bean
 	public ResourceBundleMessageSource messageSource() {
@@ -51,11 +52,23 @@ public class SpringWebConfig extends WebMvcConfigurerAdapter {
 
 		System.out.println("execution is reaching addResourceHandlers()");
 		super.addResourceHandlers(registry);
-		registry.addResourceHandler("/images/**").addResourceLocations("/resources/images/").setCachePeriod(1);
-		registry.addResourceHandler("/js/**").addResourceLocations("/resources/js/").setCachePeriod(1);
-		registry.addResourceHandler("/css/**").addResourceLocations("/resources/css/").setCachePeriod(1);
-		registry.addResourceHandler("/fonts/**").addResourceLocations("/resources/fonts/").setCachePeriod(1);
+		registry.addResourceHandler("/images/**").addResourceLocations("/resources/images/").setCachePeriod(0);
+		registry.addResourceHandler("/js/**").addResourceLocations("/resources/js/").setCachePeriod(0);
+		registry.addResourceHandler("/css/**").addResourceLocations("/resources/css/").setCachePeriod(0);
+		registry.addResourceHandler("/fonts/**").addResourceLocations("/resources/fonts/").setCachePeriod(0);
 		// this is one year cache period 31556926
+	}
+
+	@Autowired
+	private Environment environment;
+
+	// @Bean
+	public Properties propertiesSource() {
+		System.out.println("code execution is reaching propertiesSource()");
+		Properties properties = new Properties();
+		properties.put("name of property in property file", environment.getRequiredProperty(
+				"name of property in property file"));
+		return properties;
 	}
 
 	@Bean
