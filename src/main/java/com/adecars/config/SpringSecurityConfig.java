@@ -24,23 +24,24 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 @EnableWebSecurity
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
-	@Override
-	public void configure(WebSecurity web) throws Exception {
+	 @Override
+	 public void configure(WebSecurity web) throws Exception {
 
-		System.out.println("Code execution is reaching ignoring confugure()");
-		web.ignoring().antMatchers("/resources/css/**", "/resources/js/**").antMatchers("/js/**", "/css/**",
-				"/images/**");
-		web.ignoring().antMatchers("/adecars/resources/**", "/adecars/static/**");
-		// Spring Security should completely ignore URLs starting with /resources/
-	}
+	 System.out.println("Code execution is reaching ignoring confugure()");
+	 web.ignoring().antMatchers("/resources/**");
+	 // Spring Security should completely ignore URLs starting with /resources/
+	 }
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
 		System.out.println("Code execution is reaching confugure()");
-		// http.antMatcher("/").authorizeRequests().anyRequest().hasRole("ADMIN").and().httpBasic();
-		http.authorizeRequests().antMatchers("/", "/home", "/resources/public/**").permitAll().anyRequest()
-				.authenticated().and().formLogin().loginPage("/login").permitAll().and().logout().permitAll();
+		http.authorizeRequests().antMatchers("/", "/home").permitAll().anyRequest().authenticated().and().formLogin()
+				.loginPage("/login").permitAll().and().logout().permitAll();
+		// This line allows access to static resources
+		// http.authorizeRequests().antMatchers("/resources/**", "adecars/css/**",
+		// "/adecars/css/**", "adecars/js/**",
+		// "/adecars/js/**").permitAll().anyRequest().permitAll();
 	}
 
 	@Bean
@@ -48,11 +49,6 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 	public UserDetailsService userDetailsService() {
 
 		System.out.println("Code execution is reaching userDetailsService()");
-
-		// InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-		// manager.createUser(User.withDefaultPasswordEncoder().username("Stevens").password("trying").roles("USER")
-		// .build());
-		// return manager;
 		UserDetails userDetails = User.withDefaultPasswordEncoder().username("Stevens").password("trying").roles("USER")
 				.build();
 		InMemoryUserDetailsManager inMemoryUserDetailsManager = new InMemoryUserDetailsManager(userDetails);

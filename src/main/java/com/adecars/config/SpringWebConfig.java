@@ -16,7 +16,7 @@ import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.core.env.Environment;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
@@ -33,7 +33,7 @@ import com.adecars.controller.HomeController;
 @Configuration
 @ComponentScan(basePackageClasses = { HomeController.class })
 @PropertySource(value = { "classpath:Application.properties" })
-public class SpringWebConfig extends WebMvcConfigurerAdapter {
+public class SpringWebConfig extends WebMvcConfigurationSupport {
 
 	@Autowired
 	private ApplicationContext applicationContext;
