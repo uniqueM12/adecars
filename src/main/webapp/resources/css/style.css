@@ -97,6 +97,12 @@ body {
 	color:#555555;
 }
 
+.signoutsubmit{
+	background: none;
+ 	border: none;
+	margin : 0;
+	padding: 0;
+}
 
 /*----------------------
 	1.1. Typography
