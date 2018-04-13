@@ -181,11 +181,9 @@
 									<li><a href="profile-settings.html">Profile Settings</a></li>
 									<li><a href="my-vehicles.html">My Vehicles</a></li>
 									<li><a href="vehicle/post-vehicle.html">Post a Vehicle</a></li>
-									<li>
-										<form th:action="@{/logout}" method="post">
-											<input type="submit" value="Sign Out" />
-										</form>
-									</li>
+									<li><form th:action="@{/logout}" method="post">
+											<input th:class="signoutsubmit" type="submit" value="Sign Out" />
+										</form></li>
 								</ul></li>
 						</ul>
 					</div>

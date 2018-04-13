@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<!-- Mirrored from themes.webmasterdriver.net/carforyou/demo/post-vehicle.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2017 23:09:48 GMT -->
+<!-- Mirrored from themes.webmasterdriver.net/carforyou/demo/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Sep 2017 23:04:25 GMT -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,15 +11,17 @@
 <title>CarForYou - Responsive Car Dealer HTML5 Template</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<!--Bootstrap -->
+<!-- Font -->
 <link
 	href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900"
 	rel="stylesheet">
+<!--Bootstrap -->
 <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
 <!--Custome Style -->
 <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
 <!--OWL Carousel slider-->
 <link rel="stylesheet" th:href="@{/css/owl.carousel.css}">
+
 <link rel="stylesheet" type="text/css"
 	th:href="@{/css/owl.transitions.css}">
 <!--slick-slider -->
@@ -58,39 +60,42 @@
 <link rel="apple-touch-icon-precomposed"
 	href="assets/images/favicon-icon/apple-touch-icon-57-precomposed.png">
 <link rel="shortcut icon" href="assets/images/favicon-icon/favicon.png">
+<link rel="shortcut icon" type="image/x-icon"
+	th:href="@{/images/cod4.ico}">
+
 <!-- Google-Font-->
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+<![endif] -->
 </head>
 <body>
 
 	<!-- Start Switcher -->
-	<div class="switcher-wrapper">
-		<div class="demo_changer">
+	<div th:class="switcher-wrapper">
+		<div th:class="demo_changer">
 			<div class="demo-icon customBgColor">
 				<i class="fa fa-cog fa-spin fa-2x"></i>
 			</div>
-			<div class="form_holder">
-				<div class="row">
+			<div th:class="form_holder">
+				<div th:class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-						<div class="predefined_styles">
-							<div class="skin-theme-switcher">
+						<div th:class="predefined_styles">
+							<div th:class="skin-theme-switcher">
 								<h4>Color</h4>
-								<a href="#" data-switchcolor="red" class="styleswitch"
+								<a href="#" data-switchcolor="red" th:classappend="styleswitch"
 									style="background-color: #de302f;"> </a> <a href="#"
-									data-switchcolor="orange" class="styleswitch"
-									style="background-color: #f76d2b;"> </a> <a
-									href="#" data-switchcolor="blue" class="styleswitch"
+									data-switchcolor="orange" th:class="styleswitch"
+									style="background-color: #f76d2b;"> </a> <a href="#"
+									data-switchcolor="blue" th:class="styleswitch"
 									style="background-color: #228dcb;"> </a> <a href="#"
-									data-switchcolor="pink" class="styleswitch"
-									style="background-color: #FF2761;"> </a> <a
-									href="#" data-switchcolor="green" class="styleswitch"
+									data-switchcolor="pink" th:class="styleswitch"
+									style="background-color: #FF2761;"> </a> <a href="#"
+									data-switchcolor="green" th:class="styleswitch"
 									style="background-color: #2dcc70;"> </a> <a href="#"
-									data-switchcolor="purple" class="styleswitch"
+									data-switchcolor="purple" th:classappend="styleswitch"
 									style="background-color: #6054c2;"> </a>
 							</div>
 						</div>
@@ -103,9 +108,9 @@
 
 	<!--Header-->
 	<header>
-		<div class="default-header">
-			<div class="container">
-				<div class="row">
+		<div th:class="default-header">
+			<div th:class="container">
+				<div th:class="row">
 					<div class="col-sm-3 col-md-2">
 						<div th:class="logo">
 							<a href="index-2.html"><img th:src="@{/images/logo.png}"
@@ -113,9 +118,9 @@
 						</div>
 					</div>
 					<div class="col-sm-9 col-md-10">
-						<div class="header_info">
-							<div class="header_widgets">
-								<div class="circle_icon">
+						<div th:class="header_info">
+							<div th:class="header_widgets">
+								<div th:class="circle_icon">
 									<i class="fa fa-envelope" aria-hidden="true"></i>
 								</div>
 								<p th:class="uppercase_text">For Support Mail us :</p>
@@ -128,7 +133,7 @@
 								<p th:class="uppercase_text">Service Helpline Call Us:</p>
 								<a href="tel:234-8104-1424-04">+234-8104-1424-04</a>
 							</div>
-							<div class="social-follow">
+							<div th:class="social-follow">
 								<ul>
 									<li><a href="#"><i class="fa fa-facebook-square"
 											aria-hidden="true"></i></a></li>
@@ -142,7 +147,7 @@
 											aria-hidden="true"></i></a></li>
 								</ul>
 							</div>
-							<div class="login_btn">
+							<div th:class="login_btn">
 								<a href="#loginform" class="btn btn-xs uppercase"
 									data-toggle="modal" data-dismiss="modal">Login / Register</a>
 							</div>
@@ -153,10 +158,10 @@
 		</div>
 
 		<!-- Navigation -->
-		<nav id="navigation_bar" class="navbar navbar-default">
+		<nav th:id="navigation_bar" class="navbar navbar-default">
 			<div class="container">
 				<div class="navbar-header">
-					<button id="menu_slide" data-target="#navigation"
+					<button th:id="menu_slide" data-target="#navigation"
 						aria-expanded="false" data-toggle="collapse"
 						class="navbar-toggle collapsed" type="button">
 						<span class="sr-only">Toggle navigation</span> <span
@@ -175,17 +180,18 @@
 								<ul class="dropdown-menu">
 									<li><a href="profile-settings.html">Profile Settings</a></li>
 									<li><a href="my-vehicles.html">My Vehicles</a></li>
-									<li class="active"><a href="post-vehicle.html">Post a
-											Vehicle</a></li>
-									<li><a href="#">Sign Out</a></li>
+									<li><a href="vehicle/post-vehicle.html">Post a Vehicle</a></li>
+									<li><form th:action="@{/logout}" method="post">
+											<input th:class="signoutsubmit" type="submit" value="Sign Out" />
+										</form></li>
 								</ul></li>
 						</ul>
 					</div>
 					<div class="header_search">
-						<div id="search_toggle">
+						<div th:id="search_toggle">
 							<i class="fa fa-search" aria-hidden="true"></i>
 						</div>
-						<form action="#" method="get" id="header-search-form">
+						<form action="#" method="get" th:id="header-search-form">
 							<input type="text" placeholder="Search..." class="form-control">
 							<button type="submit">
 								<i class="fa fa-search" aria-hidden="true"></i>
@@ -193,7 +199,7 @@
 						</form>
 					</div>
 				</div>
-				<div class="collapse navbar-collapse" id="navigation">
+				<div class="collapse navbar-collapse" th:id="navigation">
 					<ul class="nav navbar-nav">
 						<li class="dropdown"><a href="#" data-toggle="dropdown"
 							aria-haspopup="true" aria-expanded="false">Home</a>
@@ -931,11 +937,10 @@
 								<a href="#" class="btn btn-block facebook-btn"><i
 									class="fa fa-facebook-square" aria-hidden="true"></i> Login
 									with Facebook</a> <a href="#" class="btn btn-block twitter-btn"><i
-									class="fa fa-twitter-square" aria-hidden="true"></i>
-									Login with Twitter</a> <a href="#"
-									class="btn btn-block googleplus-btn"><i
-									class="fa fa-google-plus-square" aria-hidden="true"></i>
-									Login with Google+</a>
+									class="fa fa-twitter-square" aria-hidden="true"></i> Login with
+									Twitter</a> <a href="#" class="btn btn-block googleplus-btn"><i
+									class="fa fa-google-plus-square" aria-hidden="true"></i> Login
+									with Google+</a>
 							</div>
 							<div class="mid_divider"></div>
 						</div>
@@ -1004,11 +1009,10 @@
 								<a href="#" class="btn btn-block facebook-btn"><i
 									class="fa fa-facebook-square" aria-hidden="true"></i> Login
 									with Facebook</a> <a href="#" class="btn btn-block twitter-btn"><i
-									class="fa fa-twitter-square" aria-hidden="true"></i>
-									Login with Twitter</a> <a href="#"
-									class="btn btn-block googleplus-btn"><i
-									class="fa fa-google-plus-square" aria-hidden="true"></i>
-									Login with Google+</a>
+									class="fa fa-twitter-square" aria-hidden="true"></i> Login with
+									Twitter</a> <a href="#" class="btn btn-block googleplus-btn"><i
+									class="fa fa-google-plus-square" aria-hidden="true"></i> Login
+									with Google+</a>
 							</div>
 							<div class="mid_divider"></div>
 						</div>
@@ -1057,8 +1061,8 @@
 										be send.</p>
 									<p>
 										<a href="#loginform" data-toggle="modal" data-dismiss="modal"><i
-											class="fa fa-angle-double-left" aria-hidden="true"></i>
-											Back to Login</a>
+											class="fa fa-angle-double-left" aria-hidden="true"></i> Back
+											to Login</a>
 									</p>
 								</div>
 							</div>

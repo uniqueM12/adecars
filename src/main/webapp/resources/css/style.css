@@ -101,7 +101,15 @@ body {
 	background: none;
  	border: none;
 	margin : 0;
-	padding: 0;
+	color: #fff;
+    font-size: 12px;
+    font-weight: 900;
+    text-transform: uppercase;
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    line-height: 1.42857143;
+    white-space: nowrap;
 }
 
 /*----------------------
