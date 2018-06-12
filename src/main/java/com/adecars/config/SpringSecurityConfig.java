@@ -34,7 +34,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 	 * <strong>Note: </strong>The method parameter should be used only once.
 	 * Therefore, if there is need to specify multiple URLs, the URL patterns should
 	 * be added to the only antMatchers() but they should be separated with comma(,)
-	 * separate. The comma delimited URLs will be resolved separately.
+	 * delimited. The comma delimited URLs will be resolved separately.
 	 * </p>
 	 */
 	@Override
