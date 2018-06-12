@@ -3,16 +3,11 @@
  */
 package com.adecars.controller;
 
-import javax.validation.Valid;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -66,36 +61,33 @@ public class HomeController {
 		return "login";
 	}
 
-	@RequestMapping(value = "/signUp", method = RequestMethod.POST)
-	public String signUp(@Valid @ModelAttribute("seller") Seller seller, BindingResult bindingResult, ModelMap model) {
-
-		logger.debug("signUp() has been called");
-
-		if (bindingResult.hasErrors() || !(seller.getpWord().contentEquals(seller.getpWord2()))) {
-
-			for (FieldError error : bindingResult.getFieldErrors()) {
-				System.out.println(error.getRejectedValue() + error.getDefaultMessage());
-			}
-			return "home";
-		} else if ((sellerService.findByUserName(seller.getUserName()) != null) || (sellerService.findByEmail(seller
-				.getEmail()) != null)) {
-
-			if (sellerService.findByUserName(seller.getUserName()) != null) {
-
-				model.addAttribute("usedUserName", "The Username you supplied has already been used");
-				System.out.println("The Username you supplied has already been used");
-			}
-			if (sellerService.findByEmail(seller.getEmail()) != null) {
-
-				model.addAttribute("usedEmail", "The email address you supplied has been used ");
-				System.out.println("The email address you supplied has been used ");
-			}
-			return "home";
-		} else {
-			sellerService.save(seller);
-		}
-		return "post-vehicle";
-	}
+	/*
+	 * @RequestMapping(value = "/signUp", method = RequestMethod.POST) public String
+	 * signUp(@Valid @ModelAttribute("seller") Seller seller, BindingResult
+	 * bindingResult, ModelMap model) {
+	 * 
+	 * logger.debug("signUp() has been called");
+	 * 
+	 * if (bindingResult.hasErrors() ||
+	 * !(seller.getpWord().contentEquals(seller.getpWord2()))) {
+	 * 
+	 * for (FieldError error : bindingResult.getFieldErrors()) {
+	 * System.out.println(error.getRejectedValue() + error.getDefaultMessage()); }
+	 * return "home"; } else if ((sellerService.findByUserName(seller.getUserName())
+	 * != null) || (sellerService.findByEmail(seller .getEmail()) != null)) {
+	 * 
+	 * if (sellerService.findByUserName(seller.getUserName()) != null) {
+	 * 
+	 * model.addAttribute("usedUserName",
+	 * "The Username you supplied has already been used");
+	 * System.out.println("The Username you supplied has already been used"); } if
+	 * (sellerService.findByEmail(seller.getEmail()) != null) {
+	 * 
+	 * model.addAttribute("usedEmail",
+	 * "The email address you supplied has been used ");
+	 * System.out.println("The email address you supplied has been used "); } return
+	 * "home"; } else { sellerService.save(seller); } return "post-vehicle"; }
+	 */
 
 	// @RequestMapping(value = "/login", method = RequestMethod.POST)
 	// public String logIn(Seller seller, ModelMap model) {
