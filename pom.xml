@@ -128,12 +128,6 @@
 			<artifactId>hibernate-core</artifactId>
 			<version>5.2.10.Final</version>
 		</dependency>
-		<!-- Hibernate validator -->
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
-			<version>6.0.2.Final</version>
-		</dependency>
 
 		<!-- jsr303 validation -->
 		<dependency>
